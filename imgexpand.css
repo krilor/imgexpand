@@ -1,0 +1,85 @@
+/* Extendable figure */
+figure.imgextend {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  clear: both;
+  float: right;
+  display: block;
+}
+
+figure.imgextend img, figure.imgextend, figure.imgextend div {
+    transition: width .4s;
+}
+
+figure.imgextend img {
+  width: 100%;
+
+}
+
+figure.imgextend.extended {
+  width: 100% !important;
+}
+
+
+
+/**
+ *  CSS icon by Wenting Zhang
+ * http://cssicon.space/#/icon/magnify
+ **/
+.imgextend-icon {
+  position: absolute;
+  top: 0.3em;
+  right: 0.4em;
+  background: rgba(0,0,0,0.2)
+}
+.imgextend-icon {
+  color: #000;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 3px;
+  width: 12px;
+  height: 12px;
+  border: solid 1px #000;
+  border-radius: 100%;
+  transform: rotate(-45deg);
+}
+
+.imgextend-icon:before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  height: 6px;
+  width: 1px;
+  background-color: #000;
+}
+
+.imgextend-icon i {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  transform: rotate(45deg);
+}
+
+.imgextend-icon i:before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 1px;
+  background-color: #000;
+}
+
+.imgextend-icon i:after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 1px;
+  background-color: #000;
+  transition: all 2s;
+  transform: rotate(90deg);
+}
+
+.extended .imgextend-icon i:after {
+  transform: rotate(0deg);
+}
