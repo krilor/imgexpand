@@ -27,11 +27,24 @@
 function imgexpand_resources() {
 
   if( !is_admin() ) {
-    wp_enqueue_style( 'imgextend-css', plugin_dir_url( __FILE__ ) . 'imgextend.css', array(), '1.0.0', 'all' );
-    wp_enqueue_script( 'imgextend-js', plugin_dir_url( __FILE__ ) . 'imgextend.js', array(), '1.0.0', true );
+    wp_enqueue_style( 'imgexpand-css', plugin_dir_url( __FILE__ ) . 'imgexpand.css', array(), '1.0.0', 'all' );
+    wp_enqueue_script( 'imgexpand-js', plugin_dir_url( __FILE__ ) . 'imgexpand.js', array(), '1.0.0', true );
   }
 
 }
 add_action( 'wp_enqueue_scripts', 'imgexpand_resources' );
 
+function IMGattachment_fields($form_fields, $post) {
+  //http://wordpress.stackexchange.com/questions/129416/add-custom-attachment-display-setting-for-images
+    $form_fields["imgexpand"]["label"] = __("Expand");
+    $form_fields["imgexpand"]["input"] = 'checkbox';
+    $form_fields["imgexpand"]["value"] = get_post_meta($post->ID, "_imgexpand", true);
+    return $form_fields;
+}
+add_filter("attachment_fields_to_edit", "IMGattachment_fields", null, 2);
+
+/* Notes
+attachment_fields_to_edit - filter
+
+*/
  ?>
